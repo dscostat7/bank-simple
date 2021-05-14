@@ -1,3 +1,3 @@
 # Treinamento PHP - Orientação a objetos
 
->> New project banco
+>> New project BANK simple, for studies;
