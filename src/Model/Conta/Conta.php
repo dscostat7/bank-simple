@@ -7,11 +7,16 @@ class Conta
     private $titular;
     private $saldo;
     private static $numeroContas = 0;
+    /**
+     * $tipo 1 = Conta Corrente; $tipo 2 = Conta Poupança;
+     */
+    protected $tipo;
 
-    public function __construct(Titular $titular)
+    public function __construct(Titular $titular, int $tipo)
     {
         $this->titular = $titular;
         $this->saldo = 0;
+        $this->tipo = $tipo;
 
         self::$numeroContas++;      // Atributo da propria Classe;
     }
@@ -23,7 +28,14 @@ class Conta
 
     public function sacar(float $valorSacar)
     {
-        $tarifaSaque = $valorSacar * 0.05;
+        if ($tipo === 1) {
+            $tarifaSaque = $valorSacar * 0.05;
+        } elseif ($tipo === 2) {
+            $tarifaSaque = $valorSacar * 0.03;
+        } else {
+            echo "Por favor, informe o tipo de conta correto: 1 para Corrente e 2 para Poupança!" . PHP_EOL;
+        }
+
         $valorSaque = $valorSacar + $tarifaSaque;
         if($valorSaque > $this->saldo) {
             echo "Saldo indisponível";
