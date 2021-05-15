@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace Actions\Bank\Model;
 
 class Funcionario extends Pessoa
 {

@@ -1,6 +1,10 @@
 <?php
 
-namespace Modelo\Conta;
+namespace Actions\Bank\Model\Conta;
+
+use Actions\Bank\Model\Pessoa;
+use Actions\Bank\Model\Cpf;
+use Actions\Bank\Model\Endereco;
 
 class Titular extends Pessoa
 {

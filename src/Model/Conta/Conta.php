@@ -1,6 +1,6 @@
 <?php
 
-namespace Modelo\Conta;
+namespace Actions\Bank\Model\Conta;
 
 class Conta 
 {

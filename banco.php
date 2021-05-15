@@ -1,9 +1,12 @@
 <?php
 
-require_once 'src/Conta.php';
-require_once 'src/Endereco.php';
-require_once 'src/Titular.php';
-require_once 'src/Cpf.php';
+require_once 'autoload.php';
+
+use Actions\Bank\Model\Conta\Titular;
+use Actions\Bank\Model\Endereco;
+use Actions\Bank\Model\Cpf;
+use Actions\Bank\Model\Conta\Conta;
+
 
 $endereco = new Endereco("Ghotan City", "Bairro de Ghotan", "Rua três", "007");
 $titularDiego = new Titular (new Cpf("066.055.077-99"), "Diego Souza", $endereco);
