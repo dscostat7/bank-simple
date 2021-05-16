@@ -28,9 +28,9 @@ class Conta
 
     public function sacar(float $valorSacar)
     {
-        if ($tipo === 1) {
+        if ($this->tipo === 1) {
             $tarifaSaque = $valorSacar * 0.05;
-        } elseif ($tipo === 2) {
+        } elseif ($this->tipo === 2) {
             $tarifaSaque = $valorSacar * 0.03;
         } else {
             echo "Por favor, informe o tipo de conta correto: 1 para Corrente e 2 para Poupança!" . PHP_EOL;
