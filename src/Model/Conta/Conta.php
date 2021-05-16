@@ -2,21 +2,16 @@
 
 namespace Actions\Bank\Model\Conta;
 
-class Conta 
+abstract class Conta 
 {
     private $titular;
-    private $saldo;
+    protected $saldo;
     private static $numeroContas = 0;
-    /**
-     * $tipo 1 = Conta Corrente; $tipo 2 = Conta Poupança;
-     */
-    protected $tipo;
 
-    public function __construct(Titular $titular, int $tipo)
+    public function __construct(Titular $titular)
     {
         $this->titular = $titular;
         $this->saldo = 0;
-        $this->tipo = $tipo;
 
         self::$numeroContas++;      // Atributo da propria Classe;
     }
@@ -28,13 +23,7 @@ class Conta
 
     public function sacar(float $valorSacar)
     {
-        if ($this->tipo === 1) {
-            $tarifaSaque = $valorSacar * 0.05;
-        } elseif ($this->tipo === 2) {
-            $tarifaSaque = $valorSacar * 0.03;
-        } else {
-            echo "Por favor, informe o tipo de conta correto: 1 para Corrente e 2 para Poupança!" . PHP_EOL;
-        }
+        $tarifaSaque = $valorSacar * $this->percentualTarifa();
 
         $valorSaque = $valorSacar + $tarifaSaque;
         if($valorSaque > $this->saldo) {
@@ -52,17 +41,6 @@ class Conta
             return;
         } 
         $this->saldo += $valorDeposito;    
-    }
-
-    public function transfere(float $valorTransf, Conta $contaDestino)
-    {
-        if($valorTransf > $this->saldo) {
-            echo "Valor indisponível!";
-            return;
-        } 
-        $this->sacar($valorTransf);
-        $contaDestino->depositar($valorTransf);  
-        echo "Transferência realizada com sucesso!"; 
     }
 
     public function recuperaSaldo()
@@ -85,4 +63,6 @@ class Conta
     {
         return self::$numeroContas;
     }
+
+    abstract protected function percentualTarifa(): float;
 }
