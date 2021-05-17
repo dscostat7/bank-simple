@@ -2,7 +2,7 @@
 
 namespace Actions\Bank\Model;
 
-class Pessoa
+abstract class Pessoa
 {
     protected $nome;
     protected $cpf;
