@@ -1,14 +1,23 @@
 <?php
+use Actions\Bank\Model\AcessoPropriedades;
 
 namespace Actions\Bank\Model;
 
-class Endereco
+final class Endereco
 {
+    use AcessoPropriedades;
+
     private string $cidade;
     private string $bairro;
     private string $rua;
     private string $numero;
 
+    /**
+     * @property-read string $cidade
+     * @property-read string $bairro
+     * @property-read string $rua
+     * @property-read string $numero
+     */
 
     public function __construct(string $cidade, string $bairro, string $rua, string $numero) 
     {
@@ -36,5 +45,10 @@ class Endereco
     public function recuperaNumero() : string
     {
         return $this->numero;
+    }
+
+    public function __toString(): string 
+    {
+        return "{$this->rua}, {$this->numero}, {$this->bairro}, {$this->cidade}";
     }
 }

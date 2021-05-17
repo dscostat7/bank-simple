@@ -2,7 +2,7 @@
 
 namespace Actions\Bank\Model;
 
-class Cpf
+final class Cpf
 {
     private $numero;
 
