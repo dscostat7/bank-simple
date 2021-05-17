@@ -2,7 +2,9 @@
 
 namespace Actions\Bank\Model\Funcionario;
 
-class Diretor extends Funcionario
+use Actions\Bank\Model\Autenticavel;
+
+class Diretor extends Funcionario implements Autenticavel
 {
     public function calculaBonificacao(): float 
     {
@@ -11,7 +13,12 @@ class Diretor extends Funcionario
 
     public function podeAutenticar(string $senha): bool 
     {
-        return $senha === '1234';
+        if ($senha === '1234'){
+            echo "Efetuado Login como DIRETOR!!" . PHP_EOL;
+        } else {
+            echo "Senha incorreta!!" . PHP_EOL;
+        }
+        return $senha;
     }
 
 }
