@@ -1,11 +1,7 @@
 <?php
 
-use Actions\Bank\Model\Conta\Titular;
-use Actions\Bank\Model\Endereco;
-use Actions\Bank\Model\Cpf;
-use Actions\Bank\Model\Conta\ContaPoupanca;
-use Actions\Bank\Model\Conta\Conta;
-use Actions\Bank\Model\Conta\ContaCorrente;
+use Actions\Bank\Model\{ Endereco, Cpf };
+use Actions\Bank\Model\Conta\{ ContaPoupanca, Conta, ContaCorrente, Titular };
 
 require_once 'autoload.php';
 
